@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "xRL"
+version = "0.1.0"
+description = "AMPxRL Adversarial unleashed with SAC"
+authors = [""]
+license = "MIT"
+packages = [
+    { include = "hydra_plugins" },
+]
+
+[tool.poetry.dependencies]
+python = ">=3.7, <3.9"
+hydra-core = ">=1.2.0"
+loguru = ">=0.6.0"
+ray = ">=1.13.0"
+cloudpickle = ">=2.2.0"
+scipy = ">=1.7.3"
+shortuuid = ">=1.0.11"
+ninja = ">=1.11"
+pygame>="2.6.1"
+pyquaternion>="0.9.9"
+neptune >="1.14"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,40 @@
+defaults:
+  - algo: xRL_algo
+  - task: null
+  - logging: default
+  - _self_
+
+hydra:
+  searchpath:
+    #- pkg://isaacgymenvs/cfg
+    - pkg://xRL/cfg
+
+task: null
+
+#Subscribed default config for the env initialization
+device: 'cuda'
+sim_device: 0
+graphics_device_id: 0
+
+num_envs : 10
+eval_num_envs: 150
+
+seed : 42
+max_time : 3600
+max_step: null
+
+eval_headless: True
+headless: False
+
+
+#For alg info tracking
+info_track_keys: null # a list of keys to track in the info dict returned by env.step
+info_track_step: null # ['last', 'all-episode', 'all-step'], whether to track the info in the last
+                      # step or all steps. for all steps, whether to sum all values in episodes
+                      # up or keep track per-step values
+
+
+
+artifact: ../../test/
+
+

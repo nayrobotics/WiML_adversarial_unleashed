@@ -1,0 +1,62 @@
+defaults:
+  - actor_critic.yaml
+  - _self_
+
+name: "AMPSAC"
+# SAC hyperparameters
+
+num_interac_per_env: 24 
+
+memory_size: 1e6
+
+batch_size: 16384 
+update_times: 8 
+nstep: 3
+tau: 0.05 
+gamma: 0.99
+alpha_lr: 0.001 
+no_tgt_actor: True
+alpha: null
+
+act_class: TanhDiagGaussianMLPPolicy
+act_hidden_layers : [1024, 512]
+act_activation : "gelu"
+
+cri_class: DoubleQ
+cri_hidden_layers : [1024, 512]
+cri_activation : "gelu"
+
+warm_up: 100 
+eval_freq: 100
+save_interval: 1000
+
+log_freq: 1
+
+
+# AMP config
+amp_device: "cuda:0"
+
+amp_loss_coef : 0.1 
+grad_pen_loss_coef : 0.01 
+amp_batch_size : 8192 
+amp_batch_count : 1 
+
+amp_reward_coef: 2.0
+
+amp_num_preload_transitions : 2000000 
+
+amp_task_reward_lerp : 0.3 
+
+amp_discr_hidden_dims : [1024, 512]
+min_normalized_std : [0.01, 0.01, 0.01]
+
+
+# amp_loss_coef – strengthens the imitation signal during policy update.
+
+# amp_reward_coef – adjusts imitation reward during environment interaction.
+
+# amp_task_reward_lerp – balances task vs imitation reward.
+
+# grad_pen_loss_coef – smooths the discriminator’s gradients.
+
+# amp_discr_hidden_dims – controls discriminator learning capacity.

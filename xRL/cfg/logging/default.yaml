@@ -1,0 +1,17 @@
+wandb:
+  project: xRL-sweep
+  mode: 'online'
+  tags: null
+  group: null
+  entity: null
+  name: null
+  settings:
+    ignore_globs: [ '*.pt' ]
+
+
+neptune:
+  project: common/quickstarts
+  api_token: neptune.ANONYMOUS_API_TOKEN
+  dependencies: infer
+  monitoring_namespace: monitoring
+  
